@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="HomeWork.txt" />
+  </Folder>
   <Project Path="AriTechno.Access/AriTechno.Access.csproj" Id="20030a1c-c163-4550-93aa-d1decbedefdd" />
   <Project Path="AriTechno.Database/AriTechno.Database.csproj" Id="fd5020ff-bd8e-4972-9de2-f2087a9e8de4" />
   <Project Path="AriTechno.Service/AriTechno.Service.csproj" Id="4bf839f8-1793-4bce-8800-90b0b032aeb8" />

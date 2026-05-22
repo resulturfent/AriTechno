@@ -1,0 +1,25 @@
+
+/*
+Electronik Tools
+Yaren
+Product
+Category
+Order
+Order Detail
+Product Property
+Customer
+Address
+
+Yağız
+
+User
+Role
+Payment
+Transporter
+Employee
+Country-City- District
+
+
+*/
+
+Bu

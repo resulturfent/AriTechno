@@ -1,6 +1,6 @@
 ﻿namespace AriTechno.Database.Entities;
 
-public class Kategory
+public class Category
 {
     public int Id { get; set; }
     public string Adi { get; set; }
