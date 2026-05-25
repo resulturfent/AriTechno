@@ -19,7 +19,7 @@ namespace AriTechno.Database.Configuration
 
             builder.Property(x => x.ToplamTutar).IsRequired().HasColumnType("decimal(18,2)"); // toplam tutar zorunlu alan para birimi olduğu için 2 ondalık basamak yeterli
 
-            builder.HasOne(x => x.OrderDetail).WithOne(x => x.Order).HasForeignKey<OrderDetail>(x => x.OrderId);
+        
         }
     }
 }

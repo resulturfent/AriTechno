@@ -18,6 +18,7 @@ namespace AriTechno.Database.Configuration
             builder.Property(x => x.BirimFiyat).IsRequired().HasColumnType("decimal(18,2)"); // fiyat alanı para birimi olduğu için virgülden sonra 2 basamak yeterli
 
             builder.HasOne(x => x.Product).WithMany().HasForeignKey(x => x.ProductId);
+            builder.HasOne(x => x.Order).WithMany().HasForeignKey(x => x.OrderId);
         }
     }
 }

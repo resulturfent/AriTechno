@@ -1,3 +1,5 @@
+using AriTechno.Database;
+
 namespace AriTechno.Web
 {
     public class Program
@@ -8,6 +10,10 @@ namespace AriTechno.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            var connectionAddress = builder.Configuration.GetConnectionString("AriTechnoDBConnection");
+            builder.Services.AddSqlServer<AriTechnoDB>(connectionAddress);
+
 
             var app = builder.Build();
 
