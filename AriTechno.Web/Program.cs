@@ -27,8 +27,16 @@ namespace AriTechno.Web
 
             app.UseHttpsRedirection();
             app.UseRouting();
-
+            
             app.UseAuthorization();
+
+            app.MapAreaControllerRoute(
+
+                 name: "areas",
+                 areaName:"AdminPanel",
+                pattern: "AdminPanel/{controller=Anasayfa}/{action=Index}/{id?}")
+                    .WithStaticAssets();
+               
 
             app.MapStaticAssets();
             app.MapControllerRoute(
