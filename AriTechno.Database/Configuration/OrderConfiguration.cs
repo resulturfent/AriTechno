@@ -13,11 +13,11 @@ namespace AriTechno.Database.Configuration
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
 
-            builder.Property(x => x.MusteriAdi).IsRequired().HasMaxLength(250);
+            builder.Property(x => x.MusteriAdi).IsRequired().HasMaxLength(250); // müşteri adı zorunlu alan ve maksimum 250 karakter
 
             builder.Property(x => x.Tarih).IsRequired();
 
-            builder.Property(x => x.ToplamTutar).IsRequired().HasColumnType("decimal(18,2)");
+            builder.Property(x => x.ToplamTutar).IsRequired().HasColumnType("decimal(18,2)"); // toplam tutar zorunlu alan para birimi olduğu için 2 ondalık basamak yeterli
 
             builder.HasOne(x => x.OrderDetail).WithOne(x => x.Order).HasForeignKey<OrderDetail>(x => x.OrderId);
         }

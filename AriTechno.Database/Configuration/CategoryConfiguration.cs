@@ -11,7 +11,7 @@ namespace AriTechno.Database.Configuration
             builder.ToTable("Categories");
 
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.Id).UseIdentityColumn(); // id otomatik artıyor elle girmemize gerek yok
 
             builder.Property(x => x.Adi).IsRequired().HasMaxLength(250);
 
