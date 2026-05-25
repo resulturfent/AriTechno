@@ -11,15 +11,15 @@ namespace AriTechno.Database.Configuration
             builder.ToTable("Products");
 
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.Id).UseIdentityColumn(); 
 
-            builder.Property(x => x.Adi).IsRequired().HasMaxLength(250);
+            builder.Property(x => x.Adi).IsRequired().HasMaxLength(250); // ad zorunlu alan ve maksimum 250 karakter
 
-            builder.Property(x => x.Aciklama).HasMaxLength(500);
+            builder.Property(x => x.Aciklama).HasMaxLength(500); // MAKSİMUM 500 DEĞER GİRİLİR
 
-            builder.Property(x => x.Fiyat).IsRequired().HasColumnType("decimal(18,2)");
+            builder.Property(x => x.Fiyat).IsRequired().HasColumnType("decimal(18,2)"); // fiyat zorunlu alan ve para birimi olduğu için 2 ondalık basamak yeterli
 
-            builder.Property(x => x.Stok).IsRequired();
+            builder.Property(x => x.Stok).IsRequired(); // stok zorunlu alan ürünün mutlaka bir stok değeri olmak zorunda
         }
     }
 }
