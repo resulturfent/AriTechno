@@ -32,6 +32,14 @@ namespace AriTechno.Web
 
             app.MapStaticAssets();
 
+            //AdminPanel alanına ait controller'lar için route tanımlaması yapıyoruz.
+            //Route=> URL yapısı. Bu ayarlama olmadan Area'ya ait controller'lara erişmeye çalıştığımızda ulaşamayız.
+            app.MapAreaControllerRoute(
+                name: "areas",
+                areaName: "AdminPanel",
+                pattern: "AdminPanel/{controller=Home}/{action=Index}/{id?}")
+                .WithStaticAssets();
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Anasayfa}/{action=Index}/{id?}")
