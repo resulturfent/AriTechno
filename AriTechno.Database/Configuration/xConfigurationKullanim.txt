@@ -1,0 +1,31 @@
+﻿entity framework core configuration neden kullanılır
+entity sınıflarımızı oluşturduktan sonra bunların veritabanında nasıl bir yapıya sahip olacağını belirtmemiz gerekiyor işte bu noktada configuration devreye giriyor
+neden kullanıyoruz
+entity sınıfımız sadece c# tarafındaki modeldir 
+veritabanı tarafında tablonun adı ne olacak kolonların max uzunluğu ne olacak hangi alan zorunlu hangi alan opsiyonel bunları entity sınıfına yazmak yerine ayrı bir configuration sınıfında yönetiyoruz 
+bu sayede kodumuz daha düzenli ve okunabilir oluyor
+------------------------
+internal class CategoryConfiguration : IEntityTypeConfiguration<Category>
+:
+bu interface bize configure metodunu zorunlu kılıyor içine hangi entity için konfigürasyon yapıyorsak onu yazıyoruz
+önemli noktalar
+ToTable ile tablonun veritabanındaki adını belirliyoruz
+builder.ToTable("Categories");
+HasKey ile primary key belirliyoruz
+builder.HasKey(x => x.Id);
+UseIdentityColumn ile id nin otomatik artan olmasını sağlıyoruz
+builder.Property(x => x.Id).UseIdentityColumn();
+IsRequired ile o alanın zorunlu olduğunu söylüyoruz null geçilemez
+builder.Property(x => x.Adi).IsRequired();
+HasMaxLength ile maksimum karakter sınırını belirliyoruz
+builder.Property(x => x.Adi).HasMaxLength(250);
+HasColumnType ile özellikle decimal gibi alanlarda hassasiyeti belirliyoruz
+builder.Property(x => x.Fiyat).HasColumnType("decimal(18,2)");
+HasOne WithOne ve HasForeignKey ile tablolar arası ilişkileri kuruyoruz
+builder.HasOne(x => x.OrderDetail)
+       .WithOne(x => x.Order)
+       .HasForeignKey<OrderDetail>(x => x.OrderId);
+       ----
+configuration kullanmazsak entity framework varsayılan ayarlarla tabloları oluşturur bu bazen istemediğimiz sonuçlar doğurabilir 
+max length olmayan bir string nvarchar max olarak oluşur gereksiz alan boyutları ortaya çıkar ilişkiler yanlış kurulabilir bu yüzden 
+her zaman configuration ile kontrolü elimizde tutuyoruz
