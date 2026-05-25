@@ -31,6 +31,7 @@ namespace AriTechno.Web
             app.UseAuthorization();
 
             app.MapStaticAssets();
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Anasayfa}/{action=Index}/{id?}")
