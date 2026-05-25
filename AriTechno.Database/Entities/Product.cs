@@ -7,5 +7,9 @@
         public string? Aciklama { get; set; } // boş bırakılabilir
         public decimal Fiyat { get; set; }
         public int Stok { get; set; }
+        public int CategoryId { get; set; }
+
+        //
+        public Category Category { get; set; }
     }
 }

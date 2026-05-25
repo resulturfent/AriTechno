@@ -20,6 +20,7 @@ namespace AriTechno.Database.Configuration
             builder.Property(x => x.Fiyat).IsRequired().HasColumnType("decimal(18,2)"); // fiyat zorunlu alan ve para birimi olduğu için 2 ondalık basamak yeterli
 
             builder.Property(x => x.Stok).IsRequired(); // stok zorunlu alan ürünün mutlaka bir stok değeri olmak zorunda
+            builder.HasOne(k => k.Category).WithMany(k => k.Product).HasForeignKey(k => k.CategoryId);
         }
     }
 }

@@ -11,6 +11,6 @@ namespace AriTechno.Database.Entities
         public string? MusteriAdi { get; set; }
         public decimal ToplamTutar { get; set; }
 
-        public OrderDetail? OrderDetail { get; set; }
+        public  ICollection<OrderDetail> OrderDetail { get; set; }
     }
 }
