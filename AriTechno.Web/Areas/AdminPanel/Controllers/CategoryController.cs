@@ -6,6 +6,7 @@ public class CategoryController : Controller
 {
     public IActionResult List()
     {
+
         return View();
     }
 
