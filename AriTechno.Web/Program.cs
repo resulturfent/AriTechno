@@ -1,4 +1,8 @@
+using AriTechno.Access.Repositories;
+using AriTechno.Access.Repositories.Interfaces;
 using AriTechno.Database;
+using AriTechno.Service.Services;
+using AriTechno.Service.Services.Interfaces;
 
 namespace AriTechno.Web
 {
@@ -14,6 +18,11 @@ namespace AriTechno.Web
             var connectionAddress = builder.Configuration.GetConnectionString("AriTechnoDBConnection");
             builder.Services.AddSqlServer<AriTechnoDB>(connectionAddress);
 
+
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
+
+
+            builder.Services.AddScoped<ICategoryRespository, CategoryRepository>();
 
             var app = builder.Build();
 

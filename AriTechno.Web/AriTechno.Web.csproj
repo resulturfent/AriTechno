@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AriTechno.Database\AriTechno.Database.csproj" />
+    <ProjectReference Include="..\AriTechno.Service\AriTechno.Service.csproj" />
   </ItemGroup>
 
 </Project>

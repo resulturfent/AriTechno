@@ -2,7 +2,8 @@
 
 namespace AriTechno.Access.Repositories.Interfaces;
 
-internal interface ICategoryRespository:IRepository<Category>
+public interface ICategoryRespository:IRepository<Category>
 {
-  
+    public int ProductCount(int categoryId);
+
 }

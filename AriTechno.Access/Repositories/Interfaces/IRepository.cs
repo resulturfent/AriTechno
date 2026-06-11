@@ -1,9 +1,9 @@
 ﻿namespace AriTechno.Access.Repositories.Interfaces;
 
-internal interface IRepository<TEntity> where TEntity : class
+public interface IRepository<TEntity> where TEntity : class
 {
-    public void Save(string name, string description);
-    public void Update(int id, string name, string description);
+    public void Save(TEntity entity);
+    public void Update(TEntity entity);
     public void Delete(int id);
     public List<TEntity> GetAll();
     public TEntity GetById(int id);
