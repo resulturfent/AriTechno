@@ -15,4 +15,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\AriTechno.Access\AriTechno.Access.csproj" />
+    <ProjectReference Include="..\AriTechno.Database\AriTechno.Database.csproj" />
+  </ItemGroup>
+
 </Project>

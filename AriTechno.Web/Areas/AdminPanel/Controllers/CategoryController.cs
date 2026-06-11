@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AriTechno.Service.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AriTechno.Web.Areas.AdminPanel.Controllers
 {
     public class CategoryController : Controller
     {
+
+        private readonly ICategoryService _categorySerivce;
+
+        public CategoryController(ICategoryService categoryService)
+        {
+            _categorySerivce=categoryService;
+        }
         public IActionResult List()
         {
-            return View();
+            var list = _categorySerivce.GetAll();
+            return View(list);
         }
 
         public IActionResult Create() { 

@@ -3,17 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AriTechno.Database
 {
-    public class AriTechnoDB:DbContext
+    public class AriTechnoDB : DbContext
     {
 
-            public AriTechnoDB(DbContextOptions<AriTechnoDB> options) : base(options)
-            {
-
-
+        public AriTechnoDB(DbContextOptions<AriTechnoDB> options) : base(options)
+        {
         }
 
         public DbSet<Product> Product { get; set; }
-        public DbSet<Category> Category { get; set; }       
+        public DbSet<Category> Category { get; set; }
         public DbSet<Order> Order { get; set; }
 
         public DbSet<OrderDetail> OrderDetail { get; set; }
@@ -23,7 +21,7 @@ namespace AriTechno.Database
             base.OnModelCreating(modelBuilder);
 
 
-              }
+        }
 
 
 

@@ -1,13 +1,14 @@
-﻿@{
+﻿@using AriTechno.Database.Entities
+@{
     ViewData["Title"] = "Dashboard v3";
     Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
 }
+@model List<Category>
 
 @section css {
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
@@ -27,11 +28,17 @@
         <div class="container-fluid">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h2 class="card-title">Kategori List</h2>
-            </div>
-        </div>
+                    <div class="col-md-10">
+                        <h4 class="card-title">Kategori List</h4>
+                    </div>
+                
+                <div class="col-md-2 float-right">
 
-        
+                    @Html.ActionLink("EKLE", "Create","Category", null,new{@class="btn btn-success"})
+                </div>
+
+                </div>
+
 
             <!--begin::Row-->
             <div class="row">
@@ -43,11 +50,25 @@
                                 <th>Kategori Adı</th>
                                 <th>Açıklama</th>
                                 <th></th>
-                               
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+
+                                @foreach(var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Adi</td>
+                                        <td>@item.Aciklama</td>
+                                        <td>
+
+                                            <input type="submit" class="btn btn-sn btn-warning" name="name" value="Guncelle" />
+                                            <input type="submit" class="btn btn-sn btn-danger" name="name" value="Sil" />
+                                        </td>
+                                    </tr>
+                                }
+                                <tr>
                                 <td>Tiger</td>
                                 <td>Nixon</td>
                                 <td>System Architect</td>
@@ -686,7 +707,8 @@
 
 </main>
 @section Scripts {
-
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
