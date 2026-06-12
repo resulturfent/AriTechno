@@ -35,7 +35,20 @@ public class CategoryService : ICategoryService
 
     public bool Save(Category category)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Category ekle = new Category();
+            ekle.Adi = category.Adi;
+            ekle.Aciklama = category.Aciklama;
+            _categoryRespository.Save(ekle);
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+
+
     }
 
     public bool Update(Category category)

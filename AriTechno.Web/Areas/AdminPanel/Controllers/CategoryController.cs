@@ -26,7 +26,13 @@ public class CategoryController : Controller
 
     [HttpPost]
     public IActionResult Create(Category category)
-    {   
+    {
+       bool result = _categoryService.Save(category);
+        if (result)
+        {
+            return RedirectToAction("List");
+        }
+        ViewBag.ErrorMessage = "Kategori eklenirken bir hata oluştu.";
         return View();
     }
     public IActionResult Update()
