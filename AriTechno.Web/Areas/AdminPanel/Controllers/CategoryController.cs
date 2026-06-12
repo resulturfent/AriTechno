@@ -1,4 +1,5 @@
-﻿using AriTechno.Service.Services.Interfaces;
+﻿using AriTechno.Database.Entities;
+using AriTechno.Service.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AriTechno.Web.Areas.AdminPanel.Controllers;
@@ -22,6 +23,13 @@ public class CategoryController : Controller
     {
         return View();
     }
+
+    [HttpPost]
+    public IActionResult Create(Category category)
+    {
+        return View();
+    }
+
     public IActionResult Update()
     {
         return View();
