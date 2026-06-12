@@ -1,5 +1,13 @@
-﻿namespace AriTechno.Service.Services.Interfaces;
+﻿using AriTechno.Database.Entities;
 
-public class IProductService
+namespace AriTechno.Service.Services.Interfaces;
+
+public interface IProductService
 {
+    List<Product> GetAll();
+    Product GetById(int id);
+    Product Save(Product product);
+    Product Update(Product product);
+    bool Delete(int id);
+
 }

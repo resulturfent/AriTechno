@@ -1,0 +1,49 @@
+﻿using AriTechno.Access.Repositories.Interfaces;
+using AriTechno.Database.Entities;
+using AriTechno.Service.Services.Interfaces;
+
+namespace AriTechno.Service.Services;
+
+public class ProductService : IProductService
+{
+    private readonly IProductRepository _productRepository;
+
+    public ProductService(IProductRepository productRepository)
+    {
+        _productRepository = productRepository;
+    }
+
+    public bool Delete(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<Product> GetAll()
+    {
+        return _productRepository.GetAll();
+    }
+
+    public Product GetById(int id)
+    {
+        return _productRepository.GetById(id);
+    }
+
+    public Product Save(Product product)
+    {
+        try
+        {
+            _productRepository.Save(product);
+            return product;
+
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+    }
+
+    public Product Update(Product product)
+    {
+        throw new NotImplementedException();
+    }
+}
