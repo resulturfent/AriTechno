@@ -4,7 +4,7 @@ using AriTechno.Service.Services.Interfaces;
 
 namespace AriTechno.Service.Services;
 
-public class CategoryService : ICategoryService
+public class CategoryService : Interfaces.ICategoryService
 {
     private readonly ICategoryRespository _categoryRespository;//DI
 

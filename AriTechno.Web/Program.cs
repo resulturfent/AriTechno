@@ -19,10 +19,14 @@ namespace AriTechno.Web
             builder.Services.AddSqlServer<AriTechnoDB>(connectionAddress);
 
 
-            builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<ICategoryService, ICategoryService>();
+            builder.Services.AddScoped<IProductService, ProductService>();
 
 
             builder.Services.AddScoped<ICategoryRespository, CategoryRepository>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+
 
             var app = builder.Build();
 
