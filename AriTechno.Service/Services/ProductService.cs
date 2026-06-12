@@ -1,10 +1,12 @@
-﻿using AriTechno.Access.Repositories.Interfaces;
+﻿using AriTechno.Access.Repositories;
+using AriTechno.Access.Repositories.Interfaces;
 using AriTechno.Database.Entities;
 using AriTechno.Service.Services.Interfaces;
 
 namespace AriTechno.Service.Services;
 
 public class ProductService : IProductService
+
 {
     private readonly IProductRepository _productRepository;
 
@@ -38,8 +40,13 @@ public class ProductService : IProductService
         }
         catch (Exception)
         {
-            return null;
+                return null;
+
         }
+    }
+    public bool Update(Category category)
+    {
+        throw new NotImplementedException();
     }
 
     public Product Update(Product product)

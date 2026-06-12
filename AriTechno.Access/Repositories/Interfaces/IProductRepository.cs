@@ -4,5 +4,5 @@ namespace AriTechno.Access.Repositories.Interfaces;
 
 public interface IProductRepository : IRepository<Product>
 {
-
+  
 }

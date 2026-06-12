@@ -35,6 +35,7 @@ public class CategoryController : Controller
         ViewBag.ErrorMessage = "Kategori eklenirken bir hata oluştu.";
         return View();
     }
+
     public IActionResult Update()
     {
         return View();
