@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Dashboard v3";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
+}
+
+<main class="app-main">
+    <div class="app-content">
+        <div class="container-fluid">
+
+            <div class="col-lg-12">
+                <div class="card card-primary card-outline mb-4">
+                    <div class="card-header bg-primary">
+                        <div class="card-title ">Ürün Ekle</div>
+                    </div>
+                    <form action="Create" method="post" class="needs-validation" novalidate>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <label for="validationCustom01" class="form-label">Ürün Adı</label>
+                                    <input name="adi" type="text" class="form-control" id="validationCustom01" required />
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="validationCustom01" class="form-label">Fiyat </label>
+                                    <input name="fiyat" type="text" class="form-control" id="validationCustom01" required />
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="validationCustom01" class="form-label">Stok </label>
+                                    <input name="stok" type="text" class="form-control" id="validationCustom01" required />
+                                </div>
+                                <!--*************************Kategori**********************-->
+                                <div class="col-md-12">
+
+                                    <select name="categoryId" class="form-control">
+                                        <option value="0">Kategori Seçin</option>
+                                        @foreach (var item in ViewBag.Kategoriler)
+                                        {
+                                            <option value="@item.Id">@item.Adi</option>
+                                        }
+                                    </select>
+                                </div>
+                                <!--***********************************************-->
+
+                                <div class="col-md-12">
+                                    <label for="validationCustom02" class="form-label">Ürün Açıklaması</label>
+                                    <textarea name="aciklama" class="form-control" id="validationCustom02" placeholder="Açıklama" style="height: 6rem" required></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-info" type="submit">Ürün Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="~/adminlte/dist/js/validationtemplate.js"></script>
+}
