@@ -4,5 +4,6 @@ namespace AriTechno.Service.Services.Interfaces;
 
 public interface ISepetService
 {
-    public List<SepetDto> SepetList { get; set; }
+    public SepetDto SepeteEkle(int urunId);
+    public List<SepetDto> SepetList(int userId);
 }
