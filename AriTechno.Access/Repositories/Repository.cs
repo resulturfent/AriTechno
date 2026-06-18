@@ -31,7 +31,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 
     public TEntity GetById(int id)
     {
-        throw new NotImplementedException();
+        return _dbSet.Find(id);
     }
 
     public List<TEntity> GetByName(string name)

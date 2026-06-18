@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="~/igtu/css/responsive.css"/>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="~/igtu/css/custom.css" />
+    @RenderSection("Styles",required:false)
 </head>
 <body>
     <!-- Start Main Top -->
@@ -177,31 +178,9 @@
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-shopping-bag"></i>
-                                <span class="badge">3</span>
-                            </a>
-                            <ul class="dropdown-menu cart-list">
-                                <li>
-                                    <a href="#" class="photo"><img src="~/igtu/images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                                    <h6><a href="#">Delica omtantur </a></h6>
-                                    <p>1x - <span class="price">$10.00</span></p>
-                                </li>
-                                <li>
-                                    <a href="#" class="photo"><img src="~/igtu/images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                                    <h6><a href="#">Omnes ocurreret</a></h6>
-                                    <p>1x - <span class="price">$20.00</span></p>
-                                </li>
-                                <li>
-                                    <a href="#" class="photo"><img src="~/igtu/images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                                    <h6><a href="#">Agam facilisis</a></h6>
-                                    <p>1x - <span class="price">$30.00</span></p>
-                                </li>
-                                <li class="total">
-                                    <span class="float-right"><strong>Total</strong>: $60.00</span>
-                                    <a href="#" class="btn btn-default hvr-bounce-to-bottom btn-cart">VIEW CART</a>
-                                </li>
-                            </ul>
+                            <!--*************Sepet işlemi-->
+                            @Html.Partial("_Sepet")
+                            <!--*************Sepet işlemi-->
                         </li>
                     </ul>
                 </div>
@@ -424,6 +403,9 @@
     <script src="~/igtu/js/form-validator.min.js"></script>
     <script src="~/igtu/js/contact-form-script.js"></script>
     <script src="~/igtu/js/custom.js"> </script>
+
+    @RenderSection("Scripts", required: false)
+
 </body>
 
 </html>

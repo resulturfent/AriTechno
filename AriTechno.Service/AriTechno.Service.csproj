@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AriTechno.Access\AriTechno.Access.csproj" />
+    <ProjectReference Include="..\AriTechno.Core\AriTechno.Core.csproj" />
   </ItemGroup>
 
 </Project>

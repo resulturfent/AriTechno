@@ -1,10 +1,11 @@
-﻿
-@using AriTechno.Web.Models
+﻿@using AriTechno.Web.Models
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 
 @model ProductCategoryView
 
@@ -75,11 +76,12 @@
                                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                         </ul>
-                                                        <a class="cart hvr-bounce-to-bottom" href="#">Sepete Ekle</a>
+                                                        <a class="cart hvr-bounce-to-bottom" href="javascript:void(0)" onclick="SepeteEkle('@item.Id')">Sepete Ekle</a>
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
-                                                    <h4>@item.Aciklama</h4>
+                                                    <h4>@item.Adi</h4>
+                                                    <h6>@item.Aciklama</h6>
                                                     <h5> @item.Fiyat.ToString("C")</h5>
                                                 </div>
                                             </div>
@@ -214,7 +216,7 @@
 
                             @foreach (var item in Model.CategoryList)
                             {
-                                <a href="~/Urunler/Index/@item.Id" class="list-group-item list-group-item-action">@item.Adi <small class="text-muted">(22)</small></a> 
+                                <a href="~/Urunler/Index/@item.Id" class="list-group-item list-group-item-action">@item.Adi <small class="text-muted">(22)</small></a>
                             }
                         </div>
                     </div>
@@ -278,3 +280,32 @@
     </div>
 </div>
 <!-- End Shop Page -->
+@section Scripts {
+    <script>
+        function SepeteEkle(id){
+
+        //Ajax ile sepete ekle
+        //Ajax=> Jquery içinde Back-End tarafındaki methodlar ile iletişim kurmayı sağlayan bir method'tur
+            $.ajax({
+            url:'/Urunler/SepeteEkle',
+            dataType:'json',
+            type:'post',
+            data:{urunId:id},
+                success:function(data){
+
+                    var gelenUrun=` <li>
+        <a href="#" class="photo"><img src="~/igtu/images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
+        <h6><a href="#">${data.sepetUrunu.adi} </a></h6>
+        <p>1x - <span class="price">${data.sepetUrunu.fiyat}</span></p>
+    </li> `;
+
+        var eklenecekAlan=document.getElementById("sepetUrunleri")
+            eklenecekAlan.insertAdjacentHTML("beforeend",gelenUrun);
+                
+                }
+            });
+        }
+
+    </script>
+
+}

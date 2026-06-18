@@ -3,6 +3,7 @@
     <File Path="HomeWork.txt" />
   </Folder>
   <Project Path="AriTechno.Access/AriTechno.Access.csproj" />
+  <Project Path="AriTechno.Core/AriTechno.Core.csproj" Id="b06c63d1-05fe-4d94-80fc-b7e284a6fdbd" />
   <Project Path="AriTechno.Database/AriTechno.Database.csproj" Id="fd5020ff-bd8e-4972-9de2-f2087a9e8de4" />
   <Project Path="AriTechno.Service/AriTechno.Service.csproj" Id="4bf839f8-1793-4bce-8800-90b0b032aeb8" />
   <Project Path="AriTechno.Web/AriTechno.Web.csproj" />

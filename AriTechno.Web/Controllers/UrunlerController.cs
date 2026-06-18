@@ -34,6 +34,16 @@ namespace AriTechno.Web.Controllers
             return View(productCategoryView);
         }
 
+        [HttpPost]
+        public JsonResult SepeteEkle(int urunId)
+        {
+            var sepetUrunu = _productService.GetById(urunId);
+
+            return Json(new { success = true, sepetUrunu });
+        }
+
+
+
 
     }
 }

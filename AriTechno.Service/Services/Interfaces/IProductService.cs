@@ -8,7 +8,7 @@ public interface IProductService
     Product GetById(int id);
     Product Save(Product product);
     Product Update(Product product);
-    bool Delete(int id);
+    bool Delete(int id);   
 
 }
 
