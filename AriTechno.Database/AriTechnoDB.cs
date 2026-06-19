@@ -14,6 +14,8 @@ public class AriTechnoDB:DbContext
     public DbSet<Category> Category { get; set; }
     public DbSet<Order> Order { get; set; }
     public DbSet<OrderDetail> OrderDetail { get; set; }
+    public DbSet<Basket> Basket { get; set; }
+
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
