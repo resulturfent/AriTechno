@@ -76,7 +76,7 @@
                                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                         </ul>
-                                                        <a class="cart hvr-bounce-to-bottom" href="javascript:void(0)" onclick="SepeteEkle('@item.Id')">Sepete Ekle</a>
+                                                        <a class="cart hvr-bounce-to-bottom" href="javascript:void(0)" onclick="SepeteEkle('@item.Id', '@item.Fiyat')">Sepete Ekle</a>
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
@@ -282,7 +282,7 @@
 <!-- End Shop Page -->
 @section Scripts {
     <script>
-        function SepeteEkle(id){
+        function SepeteEkle(id,fiyat){
 
         //Ajax ile sepete ekle
         //Ajax=> Jquery içinde Back-End tarafındaki methodlar ile iletişim kurmayı sağlayan bir method'tur
@@ -290,7 +290,7 @@
             url:'/Urunler/SepeteEkle',
             dataType:'json',
             type:'post',
-            data:{urunId:id},
+            data:{urunId:id, urunFiyat:fiyat},
                 success:function(data){
 
                     var gelenUrun=` <li>

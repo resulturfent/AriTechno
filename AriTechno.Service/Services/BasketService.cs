@@ -27,12 +27,11 @@ public class BasketService : IBasketService
             //Mapping işlemi yapılacak=> Mapper kullanılabilir
             _basketRepository.Save(new Database.Entities.Basket
             {
-                Id = sepetDto.ProductId,
+                ProductId = sepetDto.ProductId,
                 UnitCount = sepetDto.Adet,
-                AddedDate = sepetDto.EklenmeTarihi,
+                AddedDate = DateTime.Now,
                 UserId = sepetDto.EkleynId,
                 Price= sepetDto.Fiyat,
-                //Resimm = sepetDto.Resim
             });
             return sepetDto;
         }
