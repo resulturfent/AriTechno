@@ -301,7 +301,13 @@
 
         var eklenecekAlan=document.getElementById("sepetUrunleri")
             eklenecekAlan.insertAdjacentHTML("beforeend",gelenUrun);
-                
+
+            $("#sepetAdet").text(parseInt($("#sepetAdet").text()) + 1);
+            debugger;
+                // var toplam=document.getElementById("sepetToplam");
+                //         toplam.innerHTML=parseFloat.parseFloat(document.getElementById("sepetToplam")).toFixxed(2)+data.sepetUrunu.fiyat;
+            $("#sepetToplam").text(parseFloat($("#sepetToplam").text()) + data.sepetUrunu.fiyat);
+
                 }
             });
         }
