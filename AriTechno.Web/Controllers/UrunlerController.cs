@@ -61,8 +61,11 @@ namespace AriTechno.Web.Controllers
 
             var sepetList = _basketService.SepetList(sepetDto.EkleynId);
             UrunuCookieyeEkle(sepetList);
+            var cookiedekiUrunler = CookidekiUrunleriGetir();
 
-            return Json(new { success = true, sepetUrunu });
+           //return Json(new { success = true, sepetUrunu });
+           return Json(new { success = true, cookiedekiUrunler });
+
         }
 
         #region Cookie (Çerez) İşlemleri 
@@ -80,18 +83,24 @@ namespace AriTechno.Web.Controllers
                 Secure = true
             };
 
-            var jsonString = JsonSerializer.Serialize(cookieyeOptions);
+            var jsonString = JsonSerializer.Serialize(guncelSepetList);
             _httpContextAccessor.HttpContext.Response.Cookies.Append("MusteriSepeti", jsonString, cookieyeOptions);
 
         }
 
 
-        public void CookidekiUrunList()
+        public List<SepetDto> CookidekiUrunleriGetir()
         {
+            var cookie = _httpContextAccessor.HttpContext.Request.Cookies["MusteriSepeti"];
 
-        }
+            if (cookie == null)
+            {
+                return new List<SepetDto>();
+            }
 
+            return JsonSerializer.Deserialize<List<SepetDto>>(cookie);
 
         #endregion
     }
 }
+}   

@@ -291,25 +291,51 @@
             dataType:'json',
             type:'post',
             data:{urunId:id, urunFiyat:fiyat},
-                success:function(data){
+             success:function(data){
 
-                    var gelenUrun=` <li>
-        <a href="#" class="photo"><img src="~/igtu/images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-        <h6><a href="#">${data.sepetUrunu.adi} </a></h6>
-        <p>1x - <span class="price">${data.sepetUrunu.fiyat}</span></p>
-    </li> `;
 
-        var eklenecekAlan=document.getElementById("sepetUrunleri")
-            eklenecekAlan.insertAdjacentHTML("beforeend",gelenUrun);
+                debugger;
+                        // 1. Elementleri seçiyoruz
+                var eklenecekAlan = document.getElementById("sepetUrunleri");
+                var $sepetAdet = $("#sepetAdet");
+                var $sepetToplam = $("#sepetToplam");
+                eklenecekAlan.innerHTML="";
+                $sepetToplam.text("0.00");
+                $sepetAdet.text("0");
+                // 2. Mevcut adet ve toplam fiyatı sayıya çevirerek alıyoruz
+                var mevcutAdet = parseInt($sepetAdet.text()) || 0;
+                var mevcutToplam = parseFloat($sepetToplam.text()) || 0;
+                mevcutAdet=0;
+                mevcutToplam=0;
 
-            $("#sepetAdet").text(parseInt($("#sepetAdet").text()) + 1);
-            debugger;
-                // var toplam=document.getElementById("sepetToplam");
-                //         toplam.innerHTML=parseFloat.parseFloat(document.getElementById("sepetToplam")).toFixxed(2)+data.sepetUrunu.fiyat;
-            $("#sepetToplam").text(parseFloat($("#sepetToplam").text()) + data.sepetUrunu.fiyat);
+                // 3. Gelecek olan ürün listesi (data.sepetUrunleri adında bir array olduğunu varsayıyoruz)
+                data.cookiedekiUrunler.forEach(function(urun) {
 
-                }
-            });
+                            // Her ürün için HTML şablonu oluşturuyoruz (Resim adını da dinamik yaptım)
+                           
+                            var gelenUrun = `
+                                <li>
+                                    <a href="#" class="photo">
+                                        <img src="/igtu/images/img-pro-01.jpg}" class="cart-thumb" />
+                                    </a>
+                                    <h6><a href="#">${urun.adi}</a></h6>
+                                    <p>1x - <span class="price">${urun.fiyat} TL</span></p>
+                                </li>`;
+
+                            // HTML i sepete ekliyoruz
+                            eklenecekAlan.insertAdjacentHTML("beforeend", gelenUrun);
+
+                            // Sayısal değerleri her ürün için döngüde arttırıyoruz
+                            mevcutAdet += 1;
+                            mevcutToplam += parseFloat(urun.fiyat);
+                        });
+
+                // 4. Sonuçları DOM'a (ekrana) yansıtıyoruz (.toFixed(2) ile kuruş hanesini sabitledik)
+                $sepetAdet.text(mevcutAdet);
+                $sepetToplam.text(mevcutToplam.toFixed(2));
+
+             }
+           })
         }
 
     </script>
