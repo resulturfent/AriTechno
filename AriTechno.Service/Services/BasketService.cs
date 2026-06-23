@@ -31,13 +31,13 @@ public class BasketService : IBasketService
                 UnitCount = sepetDto.Adet,
                 AddedDate = DateTime.Now,
                 UserId = sepetDto.EkleynId,
-                Price= sepetDto.Fiyat,
+                Price = sepetDto.Fiyat,
             });
             return sepetDto;
         }
         else
         {
-           var getirUrun= _basketRepository.GetById(varmiUrunSepette.ProductId);
+            var getirUrun = _basketRepository.GetById(varmiUrunSepette.ProductId);
 
             getirUrun.UnitCount += 1;//Adet +1 yapılacak
             _basketRepository.Update(getirUrun);//artırılan adet DB de güncellenecek
@@ -49,6 +49,17 @@ public class BasketService : IBasketService
 
     public List<SepetDto> SepetList(int userId)
     {
-        throw new NotImplementedException();
+        var list = _basketRepository.GetAll().Where(k => k.UserId == userId).ToList();
+
+        var cevirDto = list.Select(item => new SepetDto
+        {
+            EkleynId = item.UserId,
+            ProductId = item.ProductId,
+            Adet = item.UnitCount,
+            Fiyat = item.Price
+        }).ToList();
+
+        return cevirDto;
     }
+
 }

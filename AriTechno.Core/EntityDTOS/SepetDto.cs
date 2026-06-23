@@ -3,6 +3,7 @@
 public class SepetDto
 {
     public int ProductId { get; set; }
+    public string Adi { get; set; }
     public int Adet { get; set; }
     public decimal Fiyat { get; set; }
     public DateTime EklenmeTarihi { get; set; }
