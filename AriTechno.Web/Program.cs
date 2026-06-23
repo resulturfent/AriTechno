@@ -27,6 +27,7 @@ namespace AriTechno.Web
             builder.Services.AddScoped<ICategoryRespository, CategoryRepository>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+            builder.Services.AddHttpContextAccessor();
 
             var app = builder.Build();
 

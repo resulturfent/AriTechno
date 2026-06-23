@@ -1,9 +1,12 @@
 ﻿using AriTechno.Core.EntityDTOS;
+using AriTechno.Database.Entities;
 
 namespace AriTechno.Service.Services.Interfaces;
 
 public interface IBasketService
 {
-    public SepetDto SepeteEkle(SepetDto sepetDto);
-    public List<SepetDto> SepetList(int userId);
+    SepetDto SepeteEkle(SepetDto sepetDto);
+    List<SepetDto> SepetList(int userId);
+    SepetDto GetById(int urunId);
+    SepetDto Update(SepetDto basket);
 }
