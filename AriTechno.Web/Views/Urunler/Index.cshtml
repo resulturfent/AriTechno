@@ -313,14 +313,14 @@
 
                             // Her ürün için HTML şablonu oluşturuyoruz (Resim adını da dinamik yaptım)
                            
-                            var gelenUrun = `
-                                <li>
-                                    <a href="#" class="photo">
-                                        <img src="/igtu/images/img-pro-01.jpg}" class="cart-thumb" />
-                                    </a>
-                                    <h6><a href="#">${urun.adi}</a></h6>
-                                    <p>1x - <span class="price">${urun.fiyat} TL</span></p>
-                                </li>`;
+                         var gelenUrun = `
+                                        <li>
+                                            <a href="#" class="photo">
+                                                <img src="/igtu/images/${urun.resim || 'img-pro-01.jpg'}" class="cart-thumb" alt="" />
+                                            </a>
+                                            <h6><a href="#">${urun.adi}</a></h6>
+                                            <p>1x - <span class="price">${urun.fiyat} TL</span></p>
+                                        </li>`;
 
                             // HTML i sepete ekliyoruz
                             eklenecekAlan.insertAdjacentHTML("beforeend", gelenUrun);
